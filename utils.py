@@ -72,6 +72,7 @@ def parse_corpus_dir(dir_name:str = '.', return_df:bool = True, load_pickle:bool
         if title not in file_df['Title']:
             title_split = title.split('_')
             word_list = clean_doc(text_block) # pull out the individual words, minus stop words etc
+            word_list = ' '.join(word_list)
             file_dict = {'Title':title, 'Cleaned_List':[word_list], 'Full_Text':[text_block], 'Publication':title_split[-1]}
             file_df = pd.concat([file_df, pd.DataFrame(file_dict)])
 
